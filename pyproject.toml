@@ -1,0 +1,29 @@
+[project]
+name = "daysmart-mcp"
+version = "1.1.0"
+description = "Connect DaySmart Salon and Pet to AI agents through Cotlet.dev."
+readme = "README.md"
+license = "Elastic-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Cotlet.dev", email = "contact@cotlet.dev" }]
+keywords = ["daysmart", "daysmart api", "daysmart mcp", "mcp server", "claude", "chatgpt", "ai agent", "cotlet"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Office/Business"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://cotlet.dev/integrations/daysmart-api-mcp-server?utm_source=pypi&utm_medium=package&utm_campaign=daysmart"
+Source = "https://github.com/cotlet-connect/daysmart-mcp"
+
+[project.scripts]
+daysmart-mcp = "daysmart_agent:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel.force-include]
+"daysmart_agent.py" = "daysmart_agent.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["daysmart_agent.py", "README.md", "LICENSE", "mcp.json", "Dockerfile", "glama.json", "skills", "examples", ".cursor"]
